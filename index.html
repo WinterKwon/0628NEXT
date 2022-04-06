@@ -10,25 +10,33 @@
             h1 {
                 padding:30px;
                 border-bottom: solid 10px green;
-            
+            margin-bottom: 0;
             }
             h1 a{
                 text-decoration: none;
             }
 
-            ol {
-                
-                border-right:10px solid purple;
-            }
-            #container{
+            
+            @media all and (max-width: 700px) { 
+                /* body{
+                    /* background-color: pink; */
+                    
+                /* } */ 
+                #container{
                 display:grid;
                 grid-template-columns: 150px 1fr;
             }
+            ol {
+                margin-top: 0;
+                border-right:10px solid purple;
+            }
+            }
+            
         </style>
     </head>
     <body>
         <h1><a href="index.html">엘리스 집체수업 1일차</a></h1>
-        <div>
+        <!-- <div>
             WWW is <strong><u>WORLD</u> WIDE WEB.</strong>
         </div>
         
@@ -38,13 +46,13 @@
         -->
         
        
-        <br><br>
+        <!-- <br><br>
         <h2 id="html">html</h2>
         <ul>
             <li><a href="http://info.cern.ch/">html</a></li>
             <li><a href="#css">css</a></li>
             <li><a href="#js">javascript</a></li>
-        </ul>
+        </ul> --> 
     
         <div id="container">
             <ol>
