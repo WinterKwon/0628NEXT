@@ -31,13 +31,34 @@ a {
     margin:10px;
 }
 
-@media (min-width:320px) and (max-width:700px) {
+/* @media (min-width:320px) and (max-width:700px) {
     .portfolio{
         /* display:grid;
         grid-template-columns: 1fr 1fr 1fr; */
-        display:flex;
+        /* display:flex;
         margin: 10px;
+    } */ 
+
+
+@media only screen and (max-width: 600px) {
+    .portfolio {
+        display:flex;
+        width:300px ;
+        height:300px ;
+        margin: 10px;
+        
     }
+    }
+    
+@media only screen and (min-width: 1000px) {
+    .portfolio {
+        display:flex;
+        width: 700px;
+        height:700px ;
+        margin: 10px;
+    
+}
+
 }
 
 
