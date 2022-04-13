@@ -1,0 +1,43 @@
+<html>
+
+<body>
+    <!-- 말줄임표로 나타났다 클릭하면 펼쳐지게 -->
+    <!-- 1. 두 덩어리로 나누고 각각 의미는 없지만 줄 바꿈하지 않는 span으로 감싸기 -->
+    JavaScript is 
+        <span class = "collapse" 
+        style="
+            background-color:rgb(249, 244, 244);
+            padding:0 4px;
+            cursor:pointer;
+            " 
+        onclick = "
+            this.style.display = 'none';
+            // this.parentNode.querySelector('.expand').style.display = 'inline';
+            document.querySelector('.expand').style.display = 'inline';
+        ">...</span>
+
+     <span class="expand" style = 'display:none'>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reprehenderit libero quaerat eos, corrupti cupiditate quo tempora! Iste, sapiente, quae natus distinctio voluptatibus laboriosam saepe impedit explicabo vel asperiores odit?
+        Voluptates officia libero rerum. Dolorum repudiandae eveniet ipsa labore amet doloribus? Sunt perspiciatis eum, aut vel, vitae maiores provident quo neque modi consectetur dolorem voluptatibus a suscipit. Neque, eius ratione!
+        Dolorum, ducimus voluptates? Eum esse adipisci quis nisi, quia labore facilis ea reiciendis error est molestiae tempora amet ab delectus dolore expedita totam perferendis corporis! Nulla officiis nobis aspernatur nesciunt?
+    </span>
+<hr>
+
+JavaScript is <span 
+            style="
+                background-color:rgb(215, 215, 215);
+                padding:0 5px;
+                cursor:pointer;
+            " 
+            onclick="
+                this.style.display='none';
+                document.querySelector('#content').innerHTML = `
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reprehenderit libero quaerat eos, corrupti cupiditate quo tempora! Iste, sapiente, quae natus distinctio voluptatibus laboriosam saepe impedit explicabo vel asperiores odit?
+        Voluptates officia libero rerum. Dolorum repudiandae eveniet ipsa labore amet doloribus? Sunt perspiciatis eum, aut vel, vitae maiores provident quo neque modi consectetur dolorem voluptatibus a suscipit. Neque, eius ratione!
+        Dolorum, ducimus voluptates? Eum esse adipisci quis nisi, quia labore facilis ea reiciendis error est molestiae tempora amet ab delectus dolore expedita totam perferendis corporis! Nulla officiis nobis aspernatur nesciunt?
+                `
+            ">...</span> 
+            <span id="content"></span>
+    
+</body>
+</html>
