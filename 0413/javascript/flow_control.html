@@ -1,0 +1,27 @@
+<html>
+
+<body>
+    <h1>배열-array</h1>
+    서로 연관된 데이터를 모아 그룹핑한 후에 이름을 붙인 것이 배열이다.
+    <ul>
+        <li>html</li>
+        <li>css</li>
+        <li>js</li>
+    </ul>
+
+    <script>
+        let contents = ['html', 'css', 'js']
+        let members = ['pjk', 'array', 'variables', 'java']
+        let scores = [10,20,30]
+
+        console.log(contents[1]);
+        console.log(contents.length);
+        contents.push('react');
+        console.log(contents);
+
+        for (let c of contents){
+            document.createElement('li').innerHTML=c;
+        }
+    </script>
+</body>
+</html>
