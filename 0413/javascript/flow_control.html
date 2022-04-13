@@ -11,7 +11,7 @@
 
     <script>
         let contents = ['html', 'css', 'js']
-        let members = ['pjk', 'array', 'variables', 'java']
+        
         let scores = [10,20,30]
 
         console.log(contents[1]);
@@ -20,8 +20,39 @@
         console.log(contents);
 
         for (let c of contents){
-            document.createElement('li').innerHTML=c;
+            document.querySelector('ul').createElement="li"
+            this.innerHTML=c;
         }
     </script>
+
+    <h1>Array + Loop</h1>
+    <ul>
+        
+        <script>
+            let members = ['pjk', 'array', 'variables', 'java']
+            for (let m of members){
+                console.log(m);
+                document.write(`<li>${m}</li>`);
+            }
+
+            let tag = ''
+            for (let c of contents){
+                tag += `<li>${c}</li>`
+                document.innerHTML = tag;
+            }
+            // for (let c of contents){
+            //     document.querySelector('ul').createElement="li"
+            //     this.innerHTML=c;
+            // }
+
+
+            // console.log(1);
+            //     for(let i=0; i<3; i=i+1){
+            //         console.log(2);
+            //         console.log(3);
+            //     }
+            //     console.log(4);
+        </script>
+    </ul>
 </body>
 </html>
