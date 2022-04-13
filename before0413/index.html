@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+
+<html>
+    
+    <head>
+        <title>WEB- Welcome</title>
+        <meta charset = "utf-8">
+        <style>
+            h1 {
+                padding:30px;
+                border-bottom: solid 10px green;
+            margin-bottom: 0;
+            }
+            h1 a{
+                text-decoration: none;
+            }
+
+            
+            @media all and (max-width: 700px) { 
+                /* body{
+                    /* background-color: pink; */
+                    
+                /* } */ 
+                #container{
+                display:grid;
+                grid-template-columns: 150px 1fr;
+            }
+            ol {
+                margin-top: 0;
+                border-right:10px solid purple;
+            }
+            }
+            
+        </style>
+    </head>
+    <body>
+        <script>
+            console.log(this);
+        </script>
+        <input type="button" onclick = "console.log(this);" value = "1">
+        <input type="button" onclick = "console.log(this);" value = "2">
+        <input type="button" value = "night"
+        onclick = "
+        //만약 이 버튼의 value값이 night이라면
+        if(this.value === 'night'){
+            document.querySelector('body').style.backgroundColor='black';
+
+            document.querySelector('body').style.color='white';
+            this.value = 'Day';
+
+        } else{
+            //아니라면
+            document.querySelector('body').style.backgroundColor = 'white';
+            document.querySelector('body').style.color='black';
+            this.value = 'night'
+        }
+        
+        
+        ;" 
+        
+        
+        >
+
+
+        <h1><a href="index.html">엘리스 집체수업 1일차</a></h1>
+        <!-- <div>
+            WWW is <strong><u>WORLD</u> WIDE WEB.</strong>
+        </div>
+        
+        <!--<img src = "https://images.unsplash.com/photo-1648915146779-9ce86956cc40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80" alt= "바다 물고기" width="100px" >
+         <br>
+        WWW is <strong><u>WORLD</u> WIDE WEB.</strong>
+        -->
+        
+       
+        <!-- <br><br>
+        <h2 id="html">html</h2>
+        <ul>
+            <li><a href="http://info.cern.ch/">html</a></li>
+            <li><a href="#css">css</a></li>
+            <li><a href="#js">javascript</a></li>
+        </ul> --> 
+    
+        <div id="container">
+            <ol>
+                <li><a href="1.html">html1</a></li>
+                <li><a href="2.html">css</a></li>
+                <li><a href="3.html">kunst</a></li>
+            </ol>
+            <div>
+                <h2>Welcome</h2>
+                Hello, WEB!
+                <br>
+                <input type="button" value = "night" onclick="
+                    alert('야간');"
+
+                    onmouseleave="alert('안녕히가세요');"
+                    
+                    
+                    
+                    
+                    
+                    
+                    >  <!--alert 따옴표싸주지 않아도 실행은되지만 빨간줄! 생김-->
+                <br>
+                <input type="button" value="Switch" onclick="
+                    document.querySelector('body').style.backgroundColor ='black'; 
+                    //따옴표로 열고 black도 따옴표로 주면 안된다.
+                    document.querySelector('body').style.color ='white';
+
+                    
+                    ";>
+                <!-- <br>
+                <input type="button" value="Day" onclick="
+                    document.querySelector('body').style.backgroundColor ='white'; 
+                    //따옴표로 열고 black도 따옴표로 주면 안된다.
+                    document.querySelector('body').style.color ='black';
+                    
+                    
+                    ";> --> 
+
+            </div>
+        </div>
+
+    
+        wow !! li*3  lorem*10
+    
+        
+    ctrl l c 
+    
+        <h2><a href="4.html">html</a></h2>
+    
+        <p>HyperText Markup Language </p>
+        <p> wow does it work?</p>
+    
+       
+    </body>
+</html>
