@@ -59,7 +59,11 @@
     async function predict() {
         // predict can take in an image, video or canvas html element
         const prediction = await model.predict(webcam.canvas);
+
+        //prediction 내용 알아보기 위해 콘솔창 활용
         console.log('prediction',prediction[0].probability )
+
+        //주간, 야간 모드에 적용
         if (prediction[1].probability > 0.8){
             document.querySelector('body').style.backgroundColor = 'black';
             document.querySelector('body').style.color = 'white';
