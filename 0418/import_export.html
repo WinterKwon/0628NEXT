@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+
+<html>
+    
+    <head>
+        <title>WEB- Welcome</title>
+        <meta charset = "utf-8">
+        <style>
+            h1 {
+                padding:30px;
+                border-bottom: solid 10px green;
+            margin-bottom: 0;
+            }
+            h1 a{
+                text-decoration: none;
+            }
+
+            
+            @media all and (max-width: 700px) { 
+               
+                #container{
+                display:grid;
+                grid-template-columns: 150px 1fr;
+            }
+            ol {
+                margin-top: 0;
+                border-right:10px solid purple;
+            }
+
+            .right_container{padding: 10px;}
+            }
+            
+        </style>
+        <script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+
+        <script type = "module">
+            import {dayNight, day} from './daynight.js';
+        </script>
+    </head>
+    <body>
+        
+        <!-- jqeury로 토글 추가 -->
+        <div id="target">toggle</div>
+        <input type="button" value = "hide/show" onclick="$('#target').toggle();">
+        <input type="button" onclick = "$('a')[0].css('font-size', '200px');" value = "1">
+
+        <input type="button" onclick = "console.log(this);" value = "2">
+        <input type="button" value = "night"
+        onclick = "
+        //만약 이 버튼의 value값이 night이라면
+        if(this.value === 'night'){
+            
+            // night();
+            dayNight('night');
+
+            this.value = 'Day';
+
+        } else{
+         
+            // day();
+            dayNight('day');
+            this.value = 'night'
+        }
+        
+        
+        ;"     
+        >
+
+
+        <h1><a href="index.html">엘리스 집체수업 n일차</a></h1>
+        
+    
+        <div id="container">
+            <ol>
+                <li><a href="1.html">html1</a></li>
+                <li><a href="2.html">css</a></li>
+                <li><a href="3.html">kunst</a></li>
+                <br>
+                <br>
+            </ol>
+            <div class="right_container">
+                <h2>Welcome</h2>
+                Hello, WEB!
+                <br>
+               
+            </div>
+        </div>
+
+    
+        
+    
+        <h2><a href="4.html">html</a></h2>
+    
+        <p>HyperText Markup Language </p>
+        <p> wow does it work?</p>
+    
+        <script src = "daynight.js">
+            console.log(this);
+            
+        </script>
+    </body>
+</html>
