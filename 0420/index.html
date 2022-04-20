@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <title>동적웹사이트</title>
+    </head>
+    <body>
+        <header>
+            <h1><a href="/">WEB</a></h1>
+        </header>
+        <nav>
+            <ol>
+                <!-- <li><a href="/read/1"></a></li>
+                <li><a href="/read/2"></a></li> -->
+            </ol>
+        </nav>
+        <article>
+            <!-- <h2>Welcome</h2>
+            Hello,Web -->
+        </article>
+
+        <ol id="control">
+            <!-- <li><a href="/create">Create</a></li>
+            <li><a href="/update">Update</a></li>
+            <li><a href="/delete">Delete</a></li> -->
+        </ol>
+
+        <script>
+            const topics=[
+                {id:1, title:'html', body:'html is...'},
+                {id:2, title:'css', body:'css is ...'},
+                {id:3, title:"js", body:'js is...'}
+            ];
+            let selectedId = null;
+
+            function navHandler(e,t){
+                //.1.링크작동하지 않도록하기
+                // console.log(e);
+                // console.log(t); 
+                e.preventDefault();
+                
+                //2.id값을 알아낸다
+                selectedId = Number(e.target.id);
+
+
+                // 3,4,5는 read()에서 구현하도록 이관    
+                //3.id와 일치하는 topics의 원소를 찾는다
+                //4.본문을 만든다
+                //5. 본문을 출력한다
+                read();
+            }
+            function nav(){
+                const tag = topics.map(e =>`
+                    <li>
+                        <a href="/read/${e.id}" id="${e.id}" onclick="navHandler(event,this);">
+                            ${e.title}
+                        </a>
+                    </li>`).join('');
+                document.querySelector('nav>ol').innerHTML = tag;
+
+            }
+
+            // 본문 내용 동적으로 구성해주는 함수들
+            function read(){
+            //3.id와 일치하는 topics의 원소를 찾는다
+                const topic = topics.filter(e => e.id === selectedId)[0];
+                console.log(topic);
+
+            //4.본문을 만든다
+                const content = `<h2>${topic.title}</h2>${topic.body}`;
+            //5. 본문을 출력한다
+                document.querySelector('article').innerHTML = content;
+            }
+
+            function welcome() {}
+           
+            function create(){}
+            function update(){}
+            function del(){}
+
+
+            // ui를 동적으로 
+            function control(){}
+
+
+
+            nav();    
+        </script>
+    </body>
+</html>
