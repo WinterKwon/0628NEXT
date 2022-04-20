@@ -4,33 +4,63 @@
         <script>
             let topics= [
                 {id:1, title:'html', body:'html is..'},
-                {id:2, title:'css', body:'css is..'}
+                {id:2, title:'css', body:'css is..'},
+                {id:3, title:'js', body:'js is...'}
             ]
           
         </script>
     </head>
     <body>
-        <h1><a href="index.html">WEB</a></h1>
+        <h1><a href="index.html" onclick = "nav
+            event.preventDefault();
+            document.querySelector('article').innerHTML = `<h2>Welcome</h2>Hi, WEB`;
+            
+            ">WEB</a></h1>
         <nav>
             <ol>
                 
             </ol>
         </nav>
-        <h2>Welcome</h2>
-        Hello, WEB
+        <article id="content">
+            <h2>Welcome</h2>
+            Hello, WEB
+        </article>
 
         <script>
-            let navTag = '';
-            for (let i=0; i<topics.length; i++){
-                // document.write(`
-                // `)
-                // let more = document.getElementsByTagName("nav")[0];
-                // more.innerHTML="<li></li>";
-                // more.innerText=topics[i].title
-                navTag = navTag + `<li><a href="/read/${topics[i].id}">${topics[i].title}</a></li>`;
+            // let nav = function () {} 처럼 변수에 담아 쓸 수도 있고
+            // ()=>{ } 처럼 화살표함수로 쓸 수도 있다. 
+
+            function nav(event){
+                let navTag = '';
+                for (let i=0; i<topics.length; i++){
+                    // document.write(`
+                    // `)
+                    // let more = document.getElementsByTagName("nav")[0];
+                    // more.innerHTML="<li></li>";
+                    // more.innerText=topics[i].title
+                    navTag = navTag + `<li><a href="/read/${topics[i].id}"
+                        onclick = 
+                        "event.preventDefault();
+                         console.log(event.target.id);
+                         for (let i =0; i<topics.length; i++){
+                             if (topics[i].id === Number(event.target.id)){
+                                 document.querySelector("article #content").innerHTML = '<h2>+topics[i].title </h2>+topics[i].body';
+                                 break;
+
+
+                             }
+                         }
+                        
+                        "
+                        >${topics[i].title}</a></li>
+                        `;
+                }
+
+                //a태그의 기본동작인 페이지 이동 막고 브라우저 하단에 내용 생성되도록
+                document.querySelector('nav ol').innerHTML = navTag;
+                console.log(navTag)
             }
-            document.querySelector('nav ol').innerHTML = navTag;
-            console.log(navTag)
+            nav();
         </script>
     </body>
 </html> 
