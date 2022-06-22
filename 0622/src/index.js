@@ -21,7 +21,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from "./store";
 // import {Provider} from 'react-redux';
-import {Provider} from 'ract-redux';
+import {Provider} from 'react-redux';
 console.log('store', store);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
