@@ -1,6 +1,7 @@
 import "./App.css";
 import {useSelector, useDispatch} from 'react-redux';
-
+import countUp from './countUpSlice';
+import countDown from './countDownSlice';
 
 function Left1(props) {
   return (
@@ -21,13 +22,20 @@ function Left2(props) {
 function Left3(props) {
  
   const dispatch = useDispatch();
+  function up (step){
+    return {type: 'countUp/up', payload : step}
+  }  //이 up 함수가 action creator 이는 툴킷 사용전
   return (
     <div>
       <h1>Left3</h1>
       <button
         onClick={() => {
           
-          dispatch({type:'UP', step:2})
+          // dispatch({type:'UP', step:2}) redux때 사용
+          // dispatch(countUp.actions.up(2))  //작동확인
+          // dispatch({type: 'countUp/up', payload : 2})  //작동확인
+          dispatch(up(2))  //함수로 깔끔하게. 툴킷 사용전
+          dispatch(countUp.actions.up(2))  //툴킷의 createSlice에 name필드로 찾아감!
         }}
       >
         +
@@ -52,14 +60,18 @@ function Right2(props) {
   );
 }
 function Right3(props) {
-  // useSelector(state =>{console.log(state)})  //state안의 value 확인-> 이번에는 countup 안에 value 확인 가능
-  const value =  useSelector(state =>{
+  useSelector(state =>{console.log(state)})  //state안의 value 확인-> 이번에는 countup 안에 value 확인 가능
+  const countUpValue =  useSelector(state =>{
     return state.countUp.value;
   })
+  const countDownValue = useSelector(state=>{
+    return state.countDown.value;
+  }) 
+
   return (
     <div>
       <h1>Right3</h1>
-      {value}
+      {countUpValue} | {countDownValue}
     </div>
   );
 }
