@@ -34,11 +34,19 @@ function Left3(props) {
           // dispatch({type:'UP', step:2}) redux때 사용
           // dispatch(countUp.actions.up(2))  //작동확인
           // dispatch({type: 'countUp/up', payload : 2})  //작동확인
-          dispatch(up(2))  //함수로 깔끔하게. 툴킷 사용전
+          // dispatch(up(2))  //함수로 깔끔하게. 툴킷 사용전
+          console.log(countUp.actions)
           dispatch(countUp.actions.up(2))  //툴킷의 createSlice에 name필드로 찾아감!
         }}
       >
         +
+      </button>
+      <button onClick = {
+        ()=>{
+          dispatch(countDown.actions.down(2))
+        }
+      }>
+        -
       </button>
     </div>
   );
