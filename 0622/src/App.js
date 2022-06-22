@@ -1,5 +1,5 @@
 import "./App.css";
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 function Left1(props) {
   return (
     <div>
@@ -17,12 +17,13 @@ function Left2(props) {
   );
 }
 function Left3(props) {
+  const dispatch = useDispatch();
   return (
     <div>
       <h1>Left3</h1>
       <button
         onClick={() => {
-          
+          dispatch({type:'UP', step:2})
         }}
       >
         +
@@ -47,7 +48,7 @@ function Right2(props) {
   );
 }
 function Right3(props) {
-  // useSelector(state =>{console.log(state)})  //state안에 value 있는 것 확인하고
+  // useSelector(state =>{console.log(state)})  //state안의 value 확인하고
   const value =  useSelector(state =>{
     return state.value;
   })
