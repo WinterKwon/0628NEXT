@@ -45,4 +45,5 @@ const slice = createSlice({
 });
 export default slice;
 console.log('slice=>', slice.actions.up(2))
+export {setAsync, upAsync};
 
