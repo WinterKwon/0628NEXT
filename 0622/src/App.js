@@ -1,6 +1,6 @@
 import "./App.css";
-// import {useSelector, useDispatch} from 'react-redux';
 import {useSelector, useDispatch} from 'react-redux';
+
 
 function Left1(props) {
   return (
@@ -19,14 +19,14 @@ function Left2(props) {
   );
 }
 function Left3(props) {
-  // const dispatch = useDispatch();
+ 
   const dispatch = useDispatch();
   return (
     <div>
       <h1>Left3</h1>
       <button
         onClick={() => {
-          // dispatch({type:'UP', step:2})
+          
           dispatch({type:'UP', step:2})
         }}
       >
@@ -52,9 +52,9 @@ function Right2(props) {
   );
 }
 function Right3(props) {
-  // useSelector(state =>{console.log(state)})  //state안의 value 확인하고
+  // useSelector(state =>{console.log(state)})  //state안의 value 확인-> 이번에는 countup 안에 value 확인 가능
   const value =  useSelector(state =>{
-    return state.value;
+    return state.countUp.value;
   })
   return (
     <div>
