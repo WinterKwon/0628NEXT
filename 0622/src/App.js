@@ -2,6 +2,7 @@ import "./App.css";
 import {useSelector, useDispatch} from 'react-redux';
 import countUp from './countUpSlice';
 import countDown from './countDownSlice';
+import {useEffect} from 'react';
 
 function Left1(props) {
   return (
@@ -22,21 +23,24 @@ function Left2(props) {
 function Left3(props) {
  
   const dispatch = useDispatch();
-  function up (step){
-    return {type: 'countUp/up', payload : step}
-  }  //이 up 함수가 action creator 이는 툴킷 사용전
+  const countUpValue = useSelector(state=>state.countUp.value);
+
+  
   return (
     <div>
       <h1>Left3</h1>
       <button
-        onClick={() => {
-          
-          // dispatch({type:'UP', step:2}) redux때 사용
-          // dispatch(countUp.actions.up(2))  //작동확인
-          // dispatch({type: 'countUp/up', payload : 2})  //작동확인
-          // dispatch(up(2))  //함수로 깔끔하게. 툴킷 사용전
-          console.log(countUp.actions)
-          dispatch(countUp.actions.up(2))  //툴킷의 createSlice에 name필드로 찾아감!
+        onClick={async () => {
+        const resp = await fetch('http://localhost:3333/countUp', {
+          method:'PUT', 
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({value:countUpValue+1}), 
+        });
+        const result = await resp.json();
+        dispatch(countUp.actions.up(1));
+      
         }}
       >
         +
@@ -84,7 +88,14 @@ function Right3(props) {
   );
 }
 export default function App() {
-
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    (async ()=>{
+      const resp = await fetch('http://localhost:3333/countUp');
+      const result = await resp.json();
+      dispatch(countUp.actions.set(result.value));
+    })()
+  },[]);
   return (
     <div id="app">
       <h1>Root</h1>
