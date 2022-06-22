@@ -95,7 +95,7 @@ export default function App() {
             dispatch(up(1));  //dispatch안에 {type: 'up', step : 1} 이런 로직을 위의 up 로직->action으로 분리
           }
         }></Left1>
-        <Right1 count={count}></Right1>
+        <Right1 count={count.value}></Right1>  
       </div>
     </div>
   );
