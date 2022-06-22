@@ -1,5 +1,5 @@
 import "./App.css";
-import {useState} from 'react';
+import {useReducer} from 'react';
 
 function Left1(props) {
   return (
@@ -63,16 +63,36 @@ function Right3(props) {
     </div>
   );
 }
+// //App()외부로 분리시킴
+// function countReducer (state, action) {
+//   if (action.type === "UP") {
+//     return { ...state, value: state.value + action.step };
+//   }
+//   return state;
+// };
 
 export default function App() {
-  const [count, setCount] = useState(0);
+  const countReducer = (state, action) => {
+    if (action.type === "UP") {
+      return { ...state, value: state.value + action.step };
+    }
+    return state;
+  };
+  const initialState = {
+    value: 0
+  };
+  const [count, dispatch] = useReducer(countReducer, initialState);
+  const up = (step) => {
+    return { type: "UP", step: step };
+  };  //action creator (redux의 용어. useReducer에서 쓰지는 않음)
+
   return (
     <div id="app">
       <h1>Root</h1>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
         <Left1 onUp={
           ()=>{
-            setCount((c)=> c+1);
+            dispatch(up(1));  //dispatch안에 {type: 'up', step : 1} 이런 로직을 위의 up 로직->action으로 분리
           }
         }></Left1>
         <Right1 count={count}></Right1>
